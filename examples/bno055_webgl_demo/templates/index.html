@@ -152,6 +152,7 @@
             load: function(model) {
               objMTLLoader.load(
                 '{{ url_for('static', filename='robot.obj') }}',
+				'{{ url_for('static', filename='robot.mtl') }}',
                 function(object) {
                   var geom = object.children[1].geometry;
                   // Rebuild geometry normals because they aren't loaded properly.

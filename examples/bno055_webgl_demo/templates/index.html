@@ -146,6 +146,24 @@
               zAxis.rotation.x = 90.0*(Math.PI/180.0);
               model.model.add(zAxis);
             }
+          },
+		  {
+            name: 'Adam',
+            load: function(model) {
+              objMTLLoader.load(
+                '{{ url_for('static', filename='robot.obj') }}',
+                function(object) {
+                  var geom = object.children[1].geometry;
+                  // Rebuild geometry normals because they aren't loaded properly.
+                  geom.computeFaceNormals();
+                  geom.computeVertexNormals();
+                  // Build bunny mesh from geometry and material.
+                  model.model = new THREE.Mesh(geom, material);
+                  // Move the bunny so it's roughly in the center of the screen.
+                  model.model.position.y = -4;
+                }
+              );
+            }
           }
         ];
 

@@ -166,10 +166,10 @@ def root():
     return flask.render_template("index.html")
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # Create a server listening for external connections on the default
     # port 5000.  Enable debug mode for better error messages and live
     # reloading of the server on changes.  Also make the server threaded
     # so multiple connections can be processed at once (very important
     # for using server sent events).
-    app.run(host="0.0.0.0", debug=True, threaded=True)
+#   app.run(host="0.0.0.0", debug=True, threaded=True)
